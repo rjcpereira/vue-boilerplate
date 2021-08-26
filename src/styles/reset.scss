@@ -1,0 +1,142 @@
+@import './mixins.scss';
+
+html {
+    font-smooth: always;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+    word-spacing: 1px;
+    height: 100%;
+    
+    *,
+    *::before,
+    *::after {
+        margin: 0;
+    }
+
+    &,
+    body {
+        height: 100%;
+    }
+
+    &,
+    body,
+    input,
+    textarea {
+        font-size: 14px;
+        font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, Verdana, sans-serif;
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+    }
+
+    ul {
+        padding: 0;
+
+        li {
+            list-style: none;
+        }
+    }
+
+    fieldset {
+        display: block;
+        outline: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    button {
+        cursor: pointer;
+    }
+    
+    a {
+        cursor: pointer;
+        text-decoration: none;
+
+        &:focus,
+        &:focus-within,
+        &:hover {
+            outline: none;
+        }
+    }
+
+    article,
+    aside,
+    footer,
+    header,
+    hgroup,
+    main,
+    nav,
+    section {
+        display: block;
+    }
+
+    button::-moz-focus-inner,
+    input::-moz-focus-inner {
+        border: 0;
+        padding: 0;
+    }
+
+    h1 {
+        font-size: 16px;
+    }
+
+    h2 {
+        font-size: 15px;
+    }
+
+    h3 {
+        font-size: 14px;
+    }
+
+    h4 {
+        font-size: 13px;
+    }
+
+    h5 {
+        font-size: 12px;
+    }
+
+    h6 {
+        font-size: 11px;
+    }
+
+    .clear {
+        clear: both;
+        visibility: hidden;
+    }
+
+    .grid {
+        @include grid();
+    }
+
+    .float,
+    .full {
+
+        &-left {
+            float: left;
+        }
+
+        &-right {
+            float: right;
+        }
+    }
+
+    .align,
+    .full {
+
+        &-left {
+            text-align: left;
+        }
+        
+        &-right {
+            text-align: right;
+        }
+    }
+
+    .disabled,
+    [disabled] {
+        pointer-events: none;
+        @include opacity(.75);
+    }
+}
