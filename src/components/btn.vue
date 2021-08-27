@@ -1,5 +1,5 @@
 <template>
-    <button :class="[ type ]" :disabled="disabled">
+    <button :class="[ type, !border ? '' : 'border']" :disabled="disabled">
         {{title}}
         <icon v-if="icon" :name="icon" :paint="paint"/>
         <slot/>
@@ -17,7 +17,8 @@ export default {
         },
         icon: String,
         paint: String,
-        disabled: Boolean
+        disabled: Boolean,
+        border: Boolean
     }
 }
 </script>
@@ -35,26 +36,34 @@ button {
     &.primary {
         color: $btn-primary-color;
         background: $btn-primary-bg;
-        border: 1px solid $btn-primary-border;
+        &.border {
+            border: 1px solid $btn-primary-border;
+        }
 
         &:focus,
         &:hover {
             color: $btn-primary-color-press;
             background: $btn-primary-bg-press;
-            border-color: $btn-primary-border-press;
+            &.border {
+                border-color: $btn-primary-border-press;
+            }
         }
     }
 
     &.secondary {
         color: $btn-secondary-color;
         background: $btn-secondary-bg;
-        border: 1px solid $btn-secondary-border;
+        &.border {
+            border: 1px solid $btn-secondary-border;
+        }
 
         &:focus,
         &:hover {
             color: $btn-secondary-color-press;
             background: $btn-secondary-bg-press;
-            border-color: $btn-secondary-border-press;
+            &.border {
+                border-color: $btn-secondary-border-press;
+            }
         }
     }
 }
